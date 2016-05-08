@@ -1,8 +1,9 @@
-
+var teas = require('../assets/teas.json');
 var HomeController = function(){
   var vm = this;
-  
-  vm.title = 'MEAN Tea'
+  vm.view = {};
+  vm.teas = teas;
+  vm.view.title = 'MEAN Tea';
 };
 
 HomeController.$inject = [];

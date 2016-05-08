@@ -1,10 +1,24 @@
 <main class="container">
   <section class="row">
-    <h1 ng-bind="vm.title"></h1>
-    <button class="btn btn-primary float-right">View Cart</button>
+    <h1 ng-bind="vm.view.title"></h1>
+    <button class="btn btn-success float-right">View Cart</button>
   </section>
-  <section class="outer-box flex-row">
-    <article class="inner-box box col1-2">1/2</article>
-    <article class="inner-box box col1-2">1/2</article>
+  <section class="outer-box flex-row row" ng-repeat="tea in vm.teas">
+    <aside class="col-md-3 inner-box">
+      <img class="img-fluid" ng-src="{{tea.imageUrl}}" alt="">
+    </aside>
+    <aside class="col-md-9 outer-box">
+      <h3 ng-bind="tea.name"></h3>
+      <p><strong>Price:</strong> {{tea.caffeineScale}}</p>
+      <p><strong>Caffeine Scale:</strong> {{tea.price}}</p>
+      <p><strong>Ingredients:</strong> {{tea.ingredients}}</p>
+      <p><strong>Rating:</strong> {{tea.rating}}</p>
+      <p><strong>In Stock?</strong> {{tea.inStock}}</p>
+      <p><strong>Categories:</strong>
+      <ul>
+        <li ng-repeat="category in tea.categories">{{category}}</li>
+      </ul>
+      </p>
+    </aside>
   </section>
 </main>
