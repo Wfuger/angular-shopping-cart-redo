@@ -22,7 +22,7 @@
       <option value="price">Lowest</option>
       <option value="-price">Highest</option>
     </select>
-    <button class="btn btn-success float-right">View Cart</button>
+    <a href="/cart"><button class="btn btn-success float-right">View Cart</button></a>
   </section>
   <section class="outer-box flex-row row" ng-repeat="tea in vm.teas | filter: searchName :tea.name | filter: categories | orderBy: prices">
     <aside class="col-md-3 inner-box">

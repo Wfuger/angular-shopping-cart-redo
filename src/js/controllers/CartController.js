@@ -1,9 +1,11 @@
 
-var CartController = function(){
+var CartController = function(teaService){
   var vm = this;
 
-  vm.title = 'About'
+  vm.title = 'Cart';
+  vm.cart = teaService.getCart();
+  console.log(vm.cart)
 };
 
-CartController.$inject = [];
+CartController.$inject = ['teaService'];
 module.exports = CartController;

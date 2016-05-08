@@ -13,8 +13,7 @@ var appStoreFactory = function () {
             if (tea.item._id === id) {
                 switch (action) {
                     case 'add-more':
-                        console.log('tea');
-                        tea.qty = +tea.qty + +qty
+                        tea.qty = +tea.qty + +qty;
                         break;
                     case 'incr':
                         ++tea.qty;
