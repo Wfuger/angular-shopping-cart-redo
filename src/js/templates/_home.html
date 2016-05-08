@@ -1,14 +1,50 @@
 <main class="container">
-  <section class="row">
     <h1 ng-bind="vm.view.title"></h1>
+  <section class="row">
+    <label for="categories">Select a category </label>
+    <select id='categories' ng-model='categories'>
+      <option value=''></option>
+      <option value='cold'>Cold</option>
+      <option value='awesome'>Awesome</option>
+      <option value='dry'>Dry</option>
+      <option value='hot'>Hot</option>
+      <option value='lucid'>Lucid</option>
+      <option value='warm'>Warm</option>
+      <option value='winter'>Winter</option>
+      <option value='spring'>Spring</option>
+    </select>
+    <span>Cart: {{!cartQtyTotal ? 'Empty' : cartQtyTotal}}</span><br>
+    <label for="Search">Search for a Product</label>
+    <input type="text" name="Search" ng-model='searchName' placeholder="Enter a name of a product">
+    <label for="sortPrices">Sort by price </label>
+    <select id='sortPrices' ng-model='prices'>
+      <option></option>
+      <option value="price">Lowest</option>
+      <option value="-price">Highest</option>
+    </select>
     <button class="btn btn-success float-right">View Cart</button>
   </section>
-  <section class="outer-box flex-row row" ng-repeat="tea in vm.teas">
+  <section class="outer-box flex-row row" ng-repeat="tea in vm.teas | filter: searchName :tea.name | filter: categories | orderBy: prices">
     <aside class="col-md-3 inner-box">
-      <img class="img-fluid" ng-src="{{tea.imageUrl}}" alt="">
+      <img class="img-fluid" ng-src="{{tea.imageUrl}}" >
     </aside>
     <aside class="col-md-9 outer-box">
-      <h3 ng-bind="tea.name"></h3>
+      <span class="row">
+        <h3 ng-bind="tea.name"></h3>
+        <button class="btn btn-warning float-right" ng-click="vm.addToCart(qty, tea.id)">Add To Cart</button>
+        <select id="qty" class="float-right" name="qty" ng-model="qty">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+        </select>
+        <label class="float-right" for="qty">Qty: </label>
+      </span>
       <p><strong>Price:</strong> {{tea.caffeineScale}}</p>
       <p><strong>Caffeine Scale:</strong> {{tea.price}}</p>
       <p><strong>Ingredients:</strong> {{tea.ingredients}}</p>
