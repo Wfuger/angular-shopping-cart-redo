@@ -45,8 +45,8 @@
         </select>
         <label class="float-right" for="qty">Qty: </label>
       </span>
-      <p><strong>Price:</strong> {{tea.caffeineScale}}</p>
-      <p><strong>Caffeine Scale:</strong> {{tea.price}}</p>
+      <p><strong>Price:</strong> {{tea.price/100 | currency}}</p>
+      <p><strong>Caffeine Scale:</strong> {{tea.caffeineScale}}</p>
       <p><strong>Ingredients:</strong> {{tea.ingredients}}</p>
       <p><strong>Rating:</strong> {{tea.rating}}</p>
       <p><strong>In Stock?</strong> {{tea.inStock}}</p>
