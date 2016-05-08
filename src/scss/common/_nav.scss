@@ -1,0 +1,15 @@
+nav{
+  a{
+    color: #ff4f59;
+    text-decoration: none;
+
+    &:hover{
+      color: #3e3e3e;
+    }
+  }
+
+  .active-link{
+    color: black;
+    text-decoration: underline;
+  }
+}

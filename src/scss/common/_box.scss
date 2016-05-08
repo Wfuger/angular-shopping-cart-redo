@@ -1,0 +1,18 @@
+.float-right {
+  float: right;
+}
+.outer-box{
+  @extend %marg-sm-vert;
+  border: 1px solid #d95947;
+  @include border-radius(10px)
+}
+
+.inner-box{
+  @extend %marg-sm-vert;
+  height: 150px;
+  text-align: center;
+  font-size: 2em;
+  line-height: 150px;
+  border: 1px solid #57bed4;
+  @include border-radius(10px)
+}
