@@ -10,15 +10,16 @@ var appStoreFactory = function () {
 
     var editCartQty = function (action, qty, id) {
         cart.map(function(tea) {
-            if (tea._id === id) {
+            if (tea.item._id === id) {
                 switch (action) {
-                    case: 'add-more':
+                    case 'add-more':
+                        console.log('tea');
                         tea.qty = +tea.qty + +qty
                         break;
-                    case: 'incr':
+                    case 'incr':
                         ++tea.qty;
                         break;
-                    case: 'decr':
+                    case 'decr':
                         --tea.qty;
                         break;
                 }
@@ -27,7 +28,6 @@ var appStoreFactory = function () {
     };
 
     return {
-
         getTeas: function () {
             return teas;
         },
@@ -38,10 +38,14 @@ var appStoreFactory = function () {
             removeTea(id)
         },
         addToCart: function (qty, item) {
-            cart.forEach(function(tea) {
-                item._id === tea._id ? editCartQty('add-more', qty, tea._id) : cart.push({item: item, qty: qty})
-
-            })
+            if (!qty) qty = 1;
+            if (cart.length === 0) {
+                cart.push({item: item, qty: qty})
+            } else {
+                cart.forEach(function(tea) {
+                    item._id === tea.item._id ? editCartQty('add-more', qty, tea.item._id) : cart.push({item: item, qty: qty})
+                });
+            }
         },
         incrQty: function (id) {
             editCartQty('incr', 1, id)
@@ -49,9 +53,7 @@ var appStoreFactory = function () {
         decrQty: function (id) {
             editCartQty('decr', 1, id)
         }
-
     }
-
 };
 
 module.exports = appStoreFactory;

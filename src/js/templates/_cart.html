@@ -1,0 +1,21 @@
+<h1 ng-bind="vm.title"></h1>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Tea</th>
+                <th>Subtotal</th>
+                <th>Quantity</th>
+                <th>Delete Item</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="tea in vm.cart">
+                <td>
+                    <h3 ng-bind="tea.item.name"></h3>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
