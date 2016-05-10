@@ -3,6 +3,7 @@ var appStoreFactory = function () {
     var cart = [];
 
     var removeTea = function(id) {
+        console.log('Fucking right')
         cart.map(function (tea, index) {
             if( tea._id === id ) cart.splice(index, 1)
         })

@@ -4,7 +4,7 @@ var CartController = function(teaService){
 
   vm.title = 'Cart';
   vm.cart = teaService.getCart();
-  console.log(vm.cart)
+  vm.removeItem = teaService.removeItem();
 };
 
 CartController.$inject = ['teaService'];

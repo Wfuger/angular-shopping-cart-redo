@@ -17,7 +17,7 @@
                 </td>
                 <td><h3 ng-bind="((tea.item.price * tea.qty)/100 | currency)"></h3></td>
                 <td><h3 ng-bind="tea.qty"></h3></td>
-                <td><button class="btn btn-danger">X</button></td>
+                <td><button class="btn btn-danger" ng-click="vm.removeItem(tea.item._id)">X</button></td>
             </tr>
         </tbody>
     </table>
